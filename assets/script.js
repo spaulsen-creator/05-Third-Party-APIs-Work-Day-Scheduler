@@ -1,34 +1,47 @@
 // moment.js added for current month/day/year. Created new ID -date-display
+//might need moment functionality
 let today = moment();
-$("#date-display").text(today.format("dddd, MMMM Do"));
+$('#date-display').text(today.format('dddd, MMMM Do'));
 
 // Setting time for color block function usage
 let time = moment();
 let hour = moment().hours();
 
-function
+function startSchedule() {
+    $('.input-group mb-3').each(function () {
+        let id = $(this).attr('id')
+        let planner = localStorage.getItem(id);
+        if (planner != 'null') {
+            $(this).find('.form-control').valueOf(planner);
+        }
 
-if planner = null
-
-
-
+    });
+}
+//jQuery event handling, 
 startSchedule();
-saveBtn = $(".saveBtn");
-saveBtn.on("click", function () {
-            var time = $(this).parent().attr("id");
-            var planner = $(this).siblings(".planner").val();
+let saveBtn = $('.saveBtn');
+saveBtn.on('click', function() {
+    let time = $(this).parent().attr("id");
+    let planner = $(this).siblings('.form-control').val();
+    console.log(time);
+    console.log(planner);
+    localStorage.setItem(time, planner);
+});
 
+function colorBlock() {
+    hour = time.hours();
+    $('.input-group mb-3').each(function() {
+        let thisHour = parseInt($(this).attr("id"));
+        if (thisHour > hour) {
+            $(this).addClass('future')
+            console.log(time);
+        } else if (thisHour === hour) {
+            $(this).addClass('present'); 
+            console.log(time);
+        } else if (thisHour === hour) {
+            $(this).addClass('past');
+        }
+    })
+}
 
-
-// iterates across divs and sets color property
-    $(document.body).click(function () {
-        $("div").each(function (i) {
-            if (this.style.color !== "blue") {
-                this.style.color = "blue";
-            } else {
-                this.style.color = "";
-            }
-        });
-    }); 
-
-    
+colorBlock();
