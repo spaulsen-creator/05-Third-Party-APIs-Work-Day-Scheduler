@@ -8,11 +8,12 @@ $('#currentDay').text(today.format('dddd, MMMM Do'));
 let time = moment();
 let hour = moment().hours();
 
-
+//jQuery usage 
 function startSchedule() {
     $('.time-block').each(function () {
+        //Grabs 'id' time in html
         let id = $(this).attr('id');
-        let planner = localStorage.getItem('id');
+        let planner = localStorage.getItem(id);
 
         if (planner !== 'null') {
             $(this).children('.planner').val(planner);
@@ -20,18 +21,20 @@ function startSchedule() {
 
     });
 }
-//jQuery event handling, 
+
 startSchedule();
-$('.saveBtn').click(function() {
+let saveBtn = $('.saveBtn');
+//Logs user data in local storage
+saveBtn.on('click', function() {
     let time = $(this).parent().attr('id');
     
     let planner = $(this).siblings('.planner').val();
     
-    //console.log(time);
-    //console.log(planner);
+    console.log(time);
+    console.log(planner);
     localStorage.setItem(time, planner);
 });
-
+//Row data changed by id/hour data for color display
 function colorBlock() {
     hour = time.hours();
     $('.time-block').each(function () {
@@ -50,7 +53,7 @@ function colorBlock() {
             $(this).addClass('past');
         }
     })
-
+//Clear dtat field function added for UI/UX
     clear.addEventListener('click', function() {
         localStorage.clear();
         location.reload();
