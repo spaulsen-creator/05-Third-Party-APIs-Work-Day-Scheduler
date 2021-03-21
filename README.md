@@ -17,11 +17,10 @@
 * A clear button was added to clear out the form and reuse.
 
 ## Deployed Website:
-
-
+https://spaulsen-creator.github.io/05-Third-Party-APIs-Work-Day-Scheduler/.
+https://github.com/spaulsen-creator/05-Third-Party-APIs-Work-Day-Scheduler
 
 ## Screenshot:
-![Html](assets/Screenshot 2021-03-20 at 6.15.36 PM.png);
-![Jquery](assets/Screenshot 2021-03-20 at 6.15.44 PM.png);
-![CSS](assets/Screenshot 2021-03-20 at 6.15.52 PM.png);
-;
+![Html](assets/Screenshot 2021-03-20 at 6.15.36 PM.png)
+![Jquery](assets/Screenshot 2021-03-20 at 6.15.44 PM.png)
+![CSS](assets/Screenshot 2021-03-20 at 6.15.52 PM.png)
